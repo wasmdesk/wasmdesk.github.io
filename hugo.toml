@@ -1,0 +1,23 @@
+baseURL = "https://wasmdesk.github.io/"
+title = "wasmdesk"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.components]]
+  name = "Compositor"
+  status = "ready"
+  blurb = "**wasmbox** — a Wayland-inspired single-instance compositor with an Openbox-style window-manager policy: stacking order, click-to-focus, cascade placement, decorations and a `requestAnimationFrame` render loop, all written in **pure Ruby** and composited to a `<canvas>`."
+[[params.components]]
+  name = "Dock"
+  status = "ready"
+  blurb = "**wasmdock** — a macOS-style dock: a bottom-anchored translucent bar with hover magnification (cosine falloff) and click-to-launch. It runs as a standalone external client and posts a `launch` message to the compositor."
+[[params.components]]
+  name = "External-client protocol"
+  status = "active"
+  blurb = "Step-B clients each run in their **own Web Worker / WASM instance** and paint into a `SharedArrayBuffer`, speaking a documented `postMessage` wire contract (`hello`/`commit`/`input`/`launch`). The compositor owns the canvas, stacking and input routing."
+[[params.components]]
+  name = "Pure Ruby on WebAssembly"
+  status = "ready"
+  blurb = "Everything builds on [go-embedded-ruby](https://github.com/go-embedded-ruby), a pure-Go (CGO=0) Ruby interpreter compiled to `js/wasm`. The window manager is `//go:embed`-ed into one self-contained `.wasm` — no runtime fetch, no C toolchain, full Ruby dynamism."
