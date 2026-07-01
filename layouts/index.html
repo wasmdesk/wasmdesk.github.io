@@ -9,21 +9,21 @@
   :root {
     --bg: #ffffff; --fg: #1b1f24; --muted: #57606a; --card: #f6f8fa;
     --border: #d8dbe6; --accent: #6D28D9; --accent-2: #8B5CF6; --accent-fg: #ffffff;
-    --ready: #1a7f37; --active: #7c3aed; --planned: #9a6700;
+    --ready: #1a7f37; --active: #7c3aed; --planned: #9a6700; --archived: #7d8590;
   }
   /* System mode (no explicit choice) follows the OS preference. */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
       --bg: #0b0d12; --fg: #e6e8f0; --muted: #9aa0b4; --card: #141826;
       --border: #262c40; --accent: #8B5CF6; --accent-2: #a78bfa; --accent-fg: #0b0d12;
-      --ready: #3fb950; --active: #a78bfa; --planned: #d29922;
+      --ready: #3fb950; --active: #a78bfa; --planned: #d29922; --archived: #7d8590;
     }
   }
   /* Forced dark (manual toggle). */
   :root[data-theme="dark"] {
     --bg: #0b0d12; --fg: #e6e8f0; --muted: #9aa0b4; --card: #141826;
     --border: #262c40; --accent: #8B5CF6; --accent-2: #a78bfa; --accent-fg: #0b0d12;
-    --ready: #3fb950; --active: #a78bfa; --planned: #d29922;
+    --ready: #3fb950; --active: #a78bfa; --planned: #d29922; --archived: #7d8590;
   }
   .theme-toggle {
     position: fixed; top: 14px; right: 14px; z-index: 10;
@@ -70,6 +70,7 @@
   .status.ready { color: var(--ready); }
   .status.active { color: var(--active); }
   .status.planned { color: var(--planned); }
+  .status.archived { color: var(--archived); opacity: .85; }
   .principles { color: var(--muted); text-align: center; padding: 10px 0 0; }
   footer { color: var(--muted); text-align: center; padding: 40px 0 56px; font-size: .9rem; }
   a { color: var(--accent); }
@@ -91,16 +92,19 @@
       <span class="pill">pure Ruby window manager</span>
       <span class="pill">runs entirely in the browser</span>
       <span class="pill">WebAssembly · CGO=0</span>
+      <span class="pill">34-widget pure-Go toolkit</span>
+      <span class="pill">16 window-decoration presets</span>
+      <span class="pill">GTK-theme aware (Adwaita · Juno · WhiteSur · Solarized)</span>
       <span class="pill">Wayland-inspired compositor</span>
-      <span class="pill">Openbox-style policy</span>
       <span class="pill">external clients (Worker + SharedArrayBuffer)</span>
       <span class="pill">macOS-style dock</span>
       <span class="pill">no server-side code</span>
       <span class="pill">built on go-embedded-ruby</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/wasmdesk/wasmbox#build--serve">Live demo</a>
+      <a class="btn primary" href="https://github.com/wasmdesk/wasmbox#pick-a-window-decoration">Live demo</a>
       <a class="btn ghost" href="https://github.com/wasmdesk/wasmbox">wasmbox</a>
+      <a class="btn ghost" href="https://github.com/wasmdesk/toolkit">toolkit</a>
       <a class="btn ghost" href="https://github.com/wasmdesk/wasmdock">wasmdock</a>
     </div>
     <div class="badges">
@@ -116,7 +120,10 @@
       <a href="https://github.com/go-embedded-ruby">go-embedded-ruby</a> — a pure-Go (<code>CGO=0</code>) Ruby
       interpreter — compiled to <code>js/wasm</code>. There is no server-side code: the compositor owns the
       canvas, the stacking order and input routing, while external clients each run in their own Web Worker
-      and paint into a <code>SharedArrayBuffer</code>.</p>
+      and paint into a <code>SharedArrayBuffer</code>. Widgets in those clients come from a
+      <a href="https://github.com/wasmdesk/toolkit">pure-Go toolkit</a> with 34 widgets and a GTK-theme
+      loader; window decorations are pluggable via a <code>Frame</code> strategy — 16 combos ship in-tree,
+      including <code>?frame=aqua-whitesur-light</code> which reproduces macOS Big Sur near-pixel-accurate.</p>
 
     <section class="grid">
       {{ range .Site.Params.components }}

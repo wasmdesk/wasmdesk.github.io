@@ -21,3 +21,19 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   name = "Pure Ruby on WebAssembly"
   status = "ready"
   blurb = "Everything builds on [go-embedded-ruby](https://github.com/go-embedded-ruby), a pure-Go (CGO=0) Ruby interpreter compiled to `js/wasm`. The window manager is `//go:embed`-ed into one self-contained `.wasm` — no runtime fetch, no C toolchain, full Ruby dynamism."
+[[params.components]]
+  name = "Toolkit (34 widgets)"
+  status = "ready"
+  blurb = "**[wasmdesk/toolkit](https://github.com/wasmdesk/toolkit)** — pure-Go pixel-blitting widget set: Button, Label, Entry, TextView, Menu, MenuBar, Dialog, Tooltip, DropDown, TreeView, Toolbar, Statusbar, FileChooser, ColorChooser, Calendar, and 19 more. 100% statement coverage. `LoadGTKTheme(css)` parses libadwaita/GTK3 `@define-color` → `Theme`."
+[[params.components]]
+  name = "Frame strategy (16 combos)"
+  status = "ready"
+  blurb = "Pluggable window decorations via the compositor's `Frame` class. 2 layouts (Openbox / Aqua) × 7 GTK palettes (Adwaita, Juno, WhiteSur, Solarized) = 16 registered presets. Pick via `?frame=NAME` URL, or from the root menu → Frame. `?frame=aqua-whitesur-light` reproduces macOS Big Sur near-pixel-accurate."
+[[params.components]]
+  name = "Toolkit-Showcase + Calculator"
+  status = "ready"
+  blurb = "Two in-tree wasmbox clients that consume the toolkit end-to-end: **Showcase** exercises every widget family across a 7-tab Notebook, with a live GTK-theme picker in the View menu (9 palettes bundled). **Calculator** is a small focused consumer (Entry + 5×4 Button grid). Both at 100% coverage."
+[[params.components]]
+  name = "wasmaqua (archived)"
+  status = "archived"
+  blurb = "The macOS-Aqua-themed sibling compositor is **archived**: its chrome is now bundled into wasmbox as the `AquaFrame` preset. `wasmbox-serve -default-frame=aqua` reproduces the old wasmaqua landing page. One binary, both looks (and 14 more themed combos)."
