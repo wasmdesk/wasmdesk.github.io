@@ -24,7 +24,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.components]]
   name = "Toolkit (34 widgets)"
   status = "ready"
-  blurb = "**[go-widgets/toolkit](https://github.com/go-widgets/toolkit)** — pure-Go pixel-blitting widget set: Button, Label, Entry, TextView, Menu, MenuBar, Dialog, Tooltip, DropDown, TreeView, Toolbar, Statusbar, FileChooser, ColorChooser, Calendar, Notification, and 20 more. 100% statement coverage. `LoadGTKTheme(css)` parses libadwaita/GTK3 `@define-color` → `Theme`. Originally at wasmdesk/toolkit; moved to its own org so non-wasmdesk projects can consume it."
+  blurb = "**[go-widgets/toolkit](https://github.com/go-widgets/toolkit)** — pure-Go pixel-blitting widget set: Button, Label, Entry, TextView, Menu, MenuBar, Dialog, Tooltip, DropDown, TreeView, Toolbar, Statusbar, FileChooser, ColorChooser, Calendar, Notification, and 20 more. 100% statement coverage. `LoadGTKTheme(css)` parses libadwaita/GTK3 `@define-color` → `Theme`."
 [[params.components]]
   name = "Frame strategy (16 combos)"
   status = "ready"
