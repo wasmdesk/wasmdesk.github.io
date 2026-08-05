@@ -8,23 +8,31 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
 [[params.components]]
   name = "Compositor"
   status = "ready"
-  blurb = "**wasmbox** — a Wayland-inspired single-instance compositor with an Openbox-style window-manager policy: stacking order, click-to-focus, cascade placement, decorations and a `requestAnimationFrame` render loop, all written in **pure Ruby** and composited to a `<canvas>`."
+  blurb = "**wasmbox** — a Wayland-inspired compositor with an Openbox-style window-manager policy: stacking order, click-to-focus, cascade placement, decorations and a `requestAnimationFrame` render loop with an idle-repaint dirty gate (~0 CPU idle), all written in **pure Ruby** and composited to a `<canvas>`. It boots behind a determinate, streamed-download splash."
 [[params.components]]
-  name = "Dock"
+  name = "Desktop environment"
   status = "ready"
-  blurb = "**wasmdock** — a macOS-style dock: a bottom-anchored translucent bar with hover magnification (cosine falloff) and click-to-launch. It runs as a standalone external client and posts a `launch` message to the compositor."
+  blurb = "wasmbox is a whole DE, not just a window manager: a **dock**, a **system tray**, **notification toasts** (icon + multi-line + multi-action), **desktop applets** (live clock, a real Calendar), **selectable wallpaper**, **window snapping / half-tiling**, a **visual Alt-Tab** switcher, **Exposé** (`F3`) and a **Spotlight** launcher (`⌘/Ctrl+Space`) — all pure Ruby."
+[[params.components]]
+  name = "Dock / toolbar"
+  status = "ready"
+  blurb = "**wasmdock** — a bottom-anchored, Fluxbox-style toolbar: launchers, a live window list (focus/close), a workspace switcher and a clock, with hover magnification, running/active indicators and right-click menus. It runs as a standalone external client and drives the compositor with `launch`/`focus`/`close` messages."
 [[params.components]]
   name = "External-client protocol"
-  status = "active"
-  blurb = "Step-B clients each run in their **own Web Worker / WASM instance** and paint into a `SharedArrayBuffer`, speaking a documented `postMessage` wire contract (`hello`/`commit`/`input`/`launch`). The compositor owns the canvas, stacking and input routing."
+  status = "ready"
+  blurb = "Clients each run in their **own Web Worker / WASM instance** and paint into a `SharedArrayBuffer`, speaking a documented `postMessage` wire contract. The **compositor itself** runs in a dedicated worker rendering into an `OffscreenCanvas` (step C), and each client talks to it over a direct `MessageChannel` (step C.1). It owns the canvas, stacking and input routing."
+[[params.components]]
+  name = "OCI app streaming"
+  status = "ready"
+  blurb = "**[ociapps](https://github.com/wasmdesk/ociapps)** — a pure-Go (CGO=0) library + CLIs that pack a client as an OCI image, push it (with ghcr token auth) to any Distribution v2 registry, and load it back into the browser with multi-registry fallback. A static `/v2` mirror lets the whole desktop stream its apps **same-origin from GitHub Pages** — no CORS, no proxy."
 [[params.components]]
   name = "Pure Ruby on WebAssembly"
   status = "ready"
   blurb = "Everything builds on [go-embedded-ruby](https://github.com/go-embedded-ruby), a pure-Go (CGO=0) Ruby interpreter compiled to `js/wasm`. The window manager is `//go:embed`-ed into one self-contained `.wasm` — no runtime fetch, no C toolchain, full Ruby dynamism."
 [[params.components]]
-  name = "Toolkit (34 widgets)"
+  name = "Pure-Go widget toolkit"
   status = "ready"
-  blurb = "**[go-widgets/toolkit](https://github.com/go-widgets/toolkit)** — pure-Go pixel-blitting widget set: Button, Label, Entry, TextView, Menu, MenuBar, Dialog, Tooltip, DropDown, TreeView, Toolbar, Statusbar, FileChooser, ColorChooser, Calendar, Notification, and 20 more. 100% statement coverage. `LoadGTKTheme(css)` parses libadwaita/GTK3 `@define-color` → `Theme`."
+  blurb = "**[go-widgets/toolkit](https://github.com/go-widgets/toolkit)** — pure-Go pixel-blitting widget set: Button, Label, Entry, TextView, Menu, MenuBar, Dialog, Tooltip, DropDown, TreeView, Toolbar, Statusbar, FileChooser, ColorChooser, Calendar, Notification and more, with AA-rendered OpenType-shaped text. 100% statement coverage. `LoadGTKTheme(css)` parses libadwaita/GTK3 `@define-color` → `Theme`."
 [[params.components]]
   name = "Frame strategy (16 combos)"
   status = "ready"

@@ -92,20 +92,23 @@
       <span class="pill">pure Ruby window manager</span>
       <span class="pill">runs entirely in the browser</span>
       <span class="pill">WebAssembly · CGO=0</span>
-      <span class="pill">34-widget pure-Go toolkit</span>
+      <span class="pill">pure-Go widget toolkit</span>
       <span class="pill">16 window-decoration presets</span>
       <span class="pill">GTK-theme aware (Adwaita · Juno · WhiteSur · Solarized)</span>
       <span class="pill">Wayland-inspired compositor</span>
+      <span class="pill">full desktop environment (tray · notifications · Spotlight · Exposé)</span>
       <span class="pill">external clients (Worker + SharedArrayBuffer)</span>
-      <span class="pill">macOS-style dock</span>
+      <span class="pill">Fluxbox-style dock / toolbar</span>
+      <span class="pill">OCI-streamed apps</span>
       <span class="pill">no server-side code</span>
       <span class="pill">built on go-embedded-ruby</span>
     </div>
     <div class="cta">
       <a class="btn primary" href="https://wasmdesk.github.io/wasmbox/">Live demo</a>
       <a class="btn ghost" href="https://github.com/wasmdesk/wasmbox">wasmbox</a>
-      <a class="btn ghost" href="https://github.com/go-widgets/toolkit">toolkit</a>
       <a class="btn ghost" href="https://github.com/wasmdesk/wasmdock">wasmdock</a>
+      <a class="btn ghost" href="https://github.com/wasmdesk/ociapps">ociapps</a>
+      <a class="btn ghost" href="https://github.com/go-widgets/toolkit">toolkit</a>
     </div>
     <div class="badges">
       <a href="https://github.com/go-embedded-ruby"><img alt="built on go-embedded-ruby" src="https://img.shields.io/badge/built%20on-go--embedded--ruby-9B1C2E"></a>
@@ -120,10 +123,13 @@
       <a href="https://github.com/go-embedded-ruby">go-embedded-ruby</a> — a pure-Go (<code>CGO=0</code>) Ruby
       interpreter — compiled to <code>js/wasm</code>. There is no server-side code: the compositor owns the
       canvas, the stacking order and input routing, while external clients each run in their own Web Worker
-      and paint into a <code>SharedArrayBuffer</code>. Widgets in those clients come from a
-      <a href="https://github.com/go-widgets/toolkit">pure-Go toolkit</a> with 34 widgets and a GTK-theme
-      loader; window decorations are pluggable via a <code>Frame</code> strategy — 16 combos ship in-tree,
-      including <code>?frame=aqua-whitesur-light</code> which reproduces macOS Big Sur near-pixel-accurate.</p>
+      and paint into a <code>SharedArrayBuffer</code>. The compositor is a full desktop environment — dock,
+      tray, notifications, applets, wallpaper, snapping, Alt-Tab, Exposé and a Spotlight launcher. Widgets in
+      the clients come from a <a href="https://github.com/go-widgets/toolkit">pure-Go toolkit</a> with a
+      GTK-theme loader; window decorations are pluggable via a <code>Frame</code> strategy — 16 combos ship
+      in-tree, including <code>?frame=aqua-whitesur-light</code> which reproduces macOS Big Sur
+      near-pixel-accurate. Clients can be streamed at runtime from any OCI registry, or same-origin from
+      GitHub Pages.</p>
 
     <section class="grid">
       {{ range .Site.Params.components }}
