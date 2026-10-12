@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — a WebAssembly desktop written in pure-Go Ruby</title>
 <meta name="description" content="wasmdesk — a WebAssembly desktop whose window manager and clients are written in pure Ruby, running on go-embedded-ruby (CGO=0) compiled to js/wasm.">
 <style>
