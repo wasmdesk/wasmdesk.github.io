@@ -27,6 +27,10 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   status = "ready"
   blurb = "Clients each run in their **own Web Worker / WASM instance** and paint into a `SharedArrayBuffer`, speaking a documented `postMessage` wire contract. The **compositor itself** runs in a dedicated worker rendering into an `OffscreenCanvas` (step C), and each client talks to it over a direct `MessageChannel` (step C.1). It owns the canvas, stacking and input routing."
 [[params.components]]
+  name = "Sound"
+  status = "ready"
+  blurb = "A worker has no `AudioContext`, so wasmbox **relays** client sound: a client writes float32 PCM into a lock-free ring in a `SharedArrayBuffer` and the page plays it from an **AudioWorklet** on the audio thread — no `postMessage` per buffer, one gain node per window, resumed on the first click. **Quake** and **Doom** (effects and OPL music) play through it; Go clients import `wasmbox/audioring`, JS clients `clients/sdk/audio.js`."
+[[params.components]]
   name = "OCI app streaming"
   status = "ready"
   blurb = "**[ociapps](https://github.com/wasmdesk/ociapps)** — a pure-Go (CGO=0) library + CLIs that pack a client as an OCI image, push it (with ghcr token auth) to any Distribution v2 registry, and load it back into the browser with multi-registry fallback. A static `/v2` mirror lets the whole desktop stream its apps **same-origin from GitHub Pages** — no CORS, no proxy."
