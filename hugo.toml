@@ -75,3 +75,29 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   chipFgDark = "#bfa5fa"
   statsEnd = "#e3d8fd"
   bandText = "#ece5fe"
+
+# The hero's buttons, rendered by landingkit's cta.html in the kit's order.
+[[params.cta]]
+  kind  = "docs"
+  href  = "https://wasmdesk.github.io/wasmbox/"
+  label = "Live demo"
+[[params.cta]]
+  kind  = "github"
+  href  = "https://github.com/wasmdesk/wasmbox"
+  label = "wasmbox"
+[[params.cta]]
+  kind  = "github"
+  href  = "https://github.com/wasmdesk/wasmdock"
+  label = "wasmdock"
+[[params.cta]]
+  kind  = "github"
+  href  = "https://github.com/wasmdesk/ociapps"
+  label = "ociapps"
+[[params.cta]]
+  kind  = "github"
+  href  = "https://github.com/go-widgets/toolkit"
+  label = "toolkit"
+
+# The architectures the tests RUN on, read from the library's CI.
+[params.mantra]
+  goarch = ["amd64"]
