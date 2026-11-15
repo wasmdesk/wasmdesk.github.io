@@ -40,18 +40,13 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">wasmdesk</h1>
-      <p class="sub">A WebAssembly desktop — its window manager and clients written in pure-Go Ruby.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://wasmdesk.github.io/wasmbox/">{{ partial "icons/globe.html" . }}Live demo</a>
-        <a class="btn btn-ghost" href="https://github.com/wasmdesk/wasmbox">{{ partial "icons/github.html" . }}wasmbox</a>
-        <a class="btn btn-ghost" href="https://github.com/wasmdesk/wasmdock">{{ partial "icons/github.html" . }}wasmdock</a>
-        <a class="btn btn-ghost" href="https://github.com/wasmdesk/ociapps">{{ partial "icons/github.html" . }}ociapps</a>
-        <a class="btn btn-ghost" href="https://github.com/go-widgets/toolkit">{{ partial "icons/github.html" . }}toolkit</a>
-      </div>
+      <p class="sub">A WebAssembly desktop — its window manager and clients written in {{ if partial "mantra-on.html" . }}Go{{ else }}pure-Go{{ end }} Ruby.</p>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
       <div class="trust"><span class="pill">pure Ruby window manager</span><span class="pill">runs entirely in the browser</span><span class="pill">WebAssembly · CGO=0</span><span class="pill">pure-Go widget toolkit</span><span class="pill">16 window-decoration presets</span><span class="pill">GTK-theme aware (Adwaita · Juno · WhiteSur · Solarized)</span><span class="pill">Wayland-inspired compositor</span><span class="pill">full desktop environment (tray · notifications · Spotlight · Exposé)</span><span class="pill">external clients (Worker + SharedArrayBuffer)</span><span class="pill">Fluxbox-style dock / toolbar</span><span class="pill">OCI-streamed apps</span><span class="pill">no server-side code</span><span class="pill">built on go-embedded-ruby</span></div>
       <div class="legacy"><div class="badges">
       <a href="https://github.com/go-embedded-ruby"><img alt="built on go-embedded-ruby" src="https://img.shields.io/badge/built%20on-go--embedded--ruby-9B1C2E"></a>
-      {{ if not (partial "mantra-on.html" $) }}<a href="https://github.com/wasmdesk/wasmbox/blob/main/LICENSE"><img alt="License: BSD-3-Clause" src="https://img.shields.io/badge/license-BSD--3--Clause-blue"></a>{{ end }}
+      {{ if not (partial "mantra-on.html" $) }}{{ if not (partial "mantra-on.html" $) }}<a href="https://github.com/wasmdesk/wasmbox/blob/main/LICENSE"><img alt="License: BSD-3-Clause" src="https://img.shields.io/badge/license-BSD--3--Clause-blue"></a>{{ end }}{{ end }}
       <img alt="WebAssembly" src="https://img.shields.io/badge/WebAssembly-CGO%3D0-654FF0?logo=webassembly&logoColor=white">
     </div></div>
     </div>
